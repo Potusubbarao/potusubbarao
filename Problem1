@@ -1,0 +1,54 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Calculator {
+private:
+    double a, b;
+    string operation;
+
+public:
+    // Constructor
+    Calculator(double x, double y, string op) {
+        a = x;
+        b = y;
+        operation = op;
+    }
+
+    // Perform the operation
+    void calculate() {
+        if (operation == "add") {
+            cout << "Result: " << a + b << endl;
+        } else if (operation == "subtract") {
+            cout << "Result: " << a - b << endl;
+        } else if (operation == "multiply") {
+            cout << "Result: " << a * b << endl;
+        } else if (operation == "divide") {
+            if (b != 0)
+                cout << "Result: " << a / b << endl;
+            else
+                cout << "Error: Division by zero!" << endl;
+        } else {
+            cout << "Invalid operation!" << endl;
+        }
+    }
+};
+
+int main() {
+    double num1, num2;
+    string op;
+
+    cout << "Enter first number: ";
+    cin >> num1;
+    
+    cout << "Enter second number: ";
+    cin >> num2;
+    
+    cout << "Enter operation (add / subtract / multiply / divide): ";
+    cin >> op;
+
+    Calculator calc(num1, num2, op);
+    calc.calculate();
+
+    return 0;
+}
